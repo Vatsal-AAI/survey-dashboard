@@ -549,7 +549,7 @@ function generateInsights(rows) {
   const allIssues = {};
   rows.forEach(r => {
     const raw = r['Issue Types'] || r['issue_types'] || '';
-    raw.split(',').map(s => s.trim()).filter(Boolean).forEach(issue => {
+    raw.split(',').map(s => s.trim().replace('AC / HVAC','AC/HVAC')).filter(Boolean).forEach(issue => {
       allIssues[issue] = (allIssues[issue] || 0) + 1;
     });
   });
@@ -689,7 +689,7 @@ function render(rows) {
   const allIssues = {};
   rows.forEach(r => {
     const raw = r['Issue Types'] || r['issue_types'] || '';
-    raw.split(',').map(s => s.trim()).filter(Boolean).forEach(issue => {
+    raw.split(',').map(s => s.trim().replace('AC / HVAC','AC/HVAC')).filter(Boolean).forEach(issue => {
       allIssues[issue] = (allIssues[issue] || 0) + 1;
     });
   });
